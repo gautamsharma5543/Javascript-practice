@@ -1,0 +1,27 @@
+    latitude <span id="lati"></span> <br>
+    longitude <span id="longi"></span>
+    <button onclick="getlocation()">location</button>
+    <span id="error" style="color: red;"></span>
+
+    <script>
+
+function getlocation(){
+
+    if(navigator.geolocation) //browser support geolocation permission
+{
+navigator.geolocation.getCurrentPosition //callback function it retrive location
+(function (pos)
+{
+
+let lat= pos.coords.latitude ///get latitude 
+let long=pos.coords.longitude //get longitude
+document.getElementById("lati").innerHTML=lat; //its only for display on page
+document.getElementById("longi").innerHTML=long //for diplay on page
+
+});
+}
+else{
+    document.getElementById("error").innerHTML="geolocation not supported" //browser not support geolocation the error
+}
+}
+    </script>
